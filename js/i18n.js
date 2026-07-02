@@ -69,7 +69,7 @@ const translations = {
 
     "where.eyebrow": "Where We Work",
     "where.title":   "Based in the Bernese Oberland — heading across Switzerland.",
-    "where.body":    "We start close to home in Grindelwald, Interlaken and the surrounding valleys, and travel throughout Switzerland by arrangement. Expanding soon into France. If you run a hotel or restaurant and want your tools marked, ask us about coming to you.",
+    "where.body":    "We start close to home in Interlaken and the surrounding valleys, and travel throughout Switzerland by arrangement. Expanding soon into France. If you run a hotel or restaurant and want your tools marked, ask us about coming to you.",
 
     "contact.eyebrow":        "Contact",
     "contact.title":          "Let's mark your tools.",
@@ -135,7 +135,7 @@ const translations = {
 
     "where.eyebrow": "Einsatzgebiet",
     "where.title":   "Zuhause im Berner Oberland — unterwegs in der ganzen Schweiz.",
-    "where.body":    "Wir starten in unserer Nähe in Grindelwald, Interlaken und den umliegenden Tälern und reisen nach Vereinbarung durch die ganze Schweiz. Bald auch in Frankreich. Wenn Sie ein Hotel oder Restaurant führen und Ihre Werkzeuge markieren möchten, fragen Sie uns — wir kommen zu Ihnen.",
+    "where.body":    "Wir starten in unserer Nähe in Interlaken und den umliegenden Tälern und reisen nach Vereinbarung durch die ganze Schweiz. Bald auch in Frankreich. Wenn Sie ein Hotel oder Restaurant führen und Ihre Werkzeuge markieren möchten, fragen Sie uns — wir kommen zu Ihnen.",
 
     "contact.eyebrow":        "Kontakt",
     "contact.title":          "Markieren wir Ihre Werkzeuge.",
@@ -201,7 +201,7 @@ const translations = {
 
     "where.eyebrow": "Zone d'intervention",
     "where.title":   "Basés dans l'Oberland bernois — en route à travers la Suisse.",
-    "where.body":    "Nous commençons tout près, à Grindelwald, Interlaken et dans les vallées environnantes, et nous nous déplaçons dans toute la Suisse sur rendez-vous. Bientôt en France. Si vous dirigez un hôtel ou un restaurant et souhaitez faire marquer vos outils, demandez-nous de venir à vous.",
+    "where.body":    "Nous commençons tout près, à Interlaken et dans les vallées environnantes, et nous nous déplaçons dans toute la Suisse sur rendez-vous. Bientôt en France. Si vous dirigez un hôtel ou un restaurant et souhaitez faire marquer vos outils, demandez-nous de venir à vous.",
 
     "contact.eyebrow":        "Contact",
     "contact.title":          "Marquons vos outils.",
@@ -267,7 +267,7 @@ const translations = {
 
     "where.eyebrow": "Zona di intervento",
     "where.title":   "Con base nell'Oberland bernese — in viaggio per tutta la Svizzera.",
-    "where.body":    "Iniziamo vicino a casa, a Grindelwald, Interlaken e nelle valli circostanti, e ci spostiamo in tutta la Svizzera su appuntamento. Presto anche in Francia. Se gestite un hotel o un ristorante e volete far marcare i vostri strumenti, chiedeteci di venire da voi.",
+    "where.body":    "Iniziamo vicino a casa, a Interlaken e nelle valli circostanti, e ci spostiamo in tutta la Svizzera su appuntamento. Presto anche in Francia. Se gestite un hotel o un ristorante e volete far marcare i vostri strumenti, chiedeteci di venire da voi.",
 
     "contact.eyebrow":        "Contatto",
     "contact.title":          "Marchiamo i vostri strumenti.",
