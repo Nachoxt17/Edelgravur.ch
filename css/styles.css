@@ -1,0 +1,412 @@
+/* ============================================================================
+   EDELGRAVUR.CH — Stylesheet
+   ----------------------------------------------------------------------------
+   Structure of this file:
+     1. Design tokens (colours, fonts, spacing) — change the look here first
+     2. Base / reset
+     3. Layout helpers (.container, .section, buttons, headings)
+     4. Header + navigation + language switcher
+     5. Hero
+     6. Content sections (intro, pillars, craft, steps, where, contact)
+     7. Footer
+     8. Responsive / mobile rules (at the bottom)
+   The site is mobile-first: base styles target phones, and the media queries
+   near the end scale things up for tablets and desktops.
+   ============================================================================ */
+
+/* 1. DESIGN TOKENS ---------------------------------------------------------- */
+:root {
+  /* Colour palette — warm, elegant, "boutique Swiss". Change these to re-skin. */
+  --bg:        #f6f2ec;   /* warm ivory page background            */
+  --bg-alt:    #efe8dd;   /* slightly darker band background       */
+  --bg-dark:   #201d19;   /* charcoal (footer, hero fallback)      */
+  --ink:       #211e19;   /* main text colour                      */
+  --muted:     #6f685d;   /* secondary / supporting text           */
+  --gold:      #b0894e;   /* accent (buttons, wordmark, eyebrows)  */
+  --gold-dark: #957336;   /* accent hover                          */
+  --line:      rgba(33, 30, 25, 0.14); /* hairline borders         */
+  --white:     #ffffff;
+
+  /* Typography — refined serif for headings, clean sans for body.
+     If you removed the Google Fonts <link> in index.html, these fall back to
+     good-looking system fonts automatically. */
+  --font-head: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --maxw: 1160px;         /* max content width          */
+  --gutter: clamp(1.25rem, 5vw, 3rem); /* side padding  */
+}
+
+/* 2. BASE / RESET ----------------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.0625rem;      /* ~17px */
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Headings use the serif display face. */
+h1, h2, h3 {
+  font-family: var(--font-head);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+h3 { font-size: 1.4rem; }
+
+/* 3. LAYOUT HELPERS --------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container.narrow { max-width: 780px; }  /* for centered text blocks */
+.center { text-align: center; }
+
+/* Vertical rhythm for every section. */
+.section { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.section-alt { background: var(--bg-alt); }
+
+.section-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+
+/* Small uppercase label above a heading (e.g. "The Service"). */
+.eyebrow, .overline {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* "lead" paragraphs are the larger supporting text under a heading. */
+.lead { font-size: 1.15rem; color: var(--muted); margin-top: 1.4rem; }
+h2 + .lead { margin-top: 1.4rem; }
+
+/* Buttons ------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.9rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn-gold  { background: var(--gold); color: var(--white); }
+.btn-gold:hover  { background: var(--gold-dark); }
+.btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
+.btn-ghost:hover { background: rgba(255,255,255,0.12); }
+.btn-small { padding: 0.6rem 1.1rem; font-size: 0.72rem; }
+
+/* 4. HEADER / NAV ----------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(246, 242, 236, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 72px;
+}
+
+/* Text wordmark logo. */
+.wordmark {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.wordmark-accent { color: var(--gold); }
+
+/* Desktop navigation links. */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin-left: auto;
+}
+.main-nav > a {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.main-nav > a:hover { color: var(--gold); }
+/* The button-style nav link ("Request a Visit"): gold background, white text. */
+.nav-cta {
+  background: var(--gold);
+  color: var(--white) !important;
+  border-color: var(--gold);
+}
+.nav-cta:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+
+/* Language switcher. */
+.lang-switch { display: flex; gap: 0.15rem; }
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 0.3rem 0.4rem;
+  transition: color 0.2s;
+}
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button.is-active { color: var(--gold); font-weight: 500; }
+
+/* Hamburger toggle — hidden on desktop, shown on mobile. */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer;
+}
+.nav-toggle span {
+  display: block; height: 2px; width: 24px;
+  background: var(--ink);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 5. HERO ------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  /* The charcoal colour shows if the photo is missing; the photo covers it. */
+  background: var(--bg-dark) center / cover no-repeat;
+  background-image: url("../assets/hero-knives-mountain.jpg");
+  color: var(--white);
+}
+/* Dark gradient so the white text stays readable over any photo. */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(20,17,14,0.35), rgba(20,17,14,0.65));
+}
+.hero-content { position: relative; max-width: 760px; }
+.hero .overline { color: #e8d3a6; } /* warm gold on dark */
+.hero-title {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  margin-bottom: 1.4rem;
+}
+.hero-subline {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 620px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+
+/* 6. CONTENT SECTIONS ------------------------------------------------------- */
+
+/* Two pillars ------------------------------------------------ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* one column on mobile */
+  gap: 1.75rem;
+}
+.pillar-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+}
+.pillar-num {
+  font-family: var(--font-head);
+  font-size: 3.5rem;
+  color: var(--gold);
+  opacity: 0.25;
+  line-height: 1;
+}
+.pillar-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0.75rem 0 0.5rem;
+}
+.pillar-card h3 { margin-bottom: 0.9rem; font-size: 1.6rem; }
+.pillar-card p  { color: var(--muted); }
+.pillar-tags {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+/* Craftsmanship (text + two photos) -------------------------- */
+.craft-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.craft-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.craft-images img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--bg-alt); /* placeholder tint before photo loads */
+}
+/* If a photo file is missing, onerror adds this class so it disappears tidily. */
+.craft-images .img-missing { display: none; }
+
+/* How it works (4 steps) ------------------------------------- */
+.steps-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  counter-reset: step;
+}
+.step { padding-top: 1rem; border-top: 2px solid var(--gold); }
+.step-num {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.step h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.step p  { color: var(--muted); font-size: 0.98rem; }
+
+/* Where we work + Contact both use centered narrow text (styled by helpers). */
+.section-where { background: var(--bg-alt); }
+
+/* Contact details block ------------------------------------- */
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.contact-item { display: flex; flex-direction: column; gap: 0.35rem; }
+.contact-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.contact-value {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+a.contact-value:hover { color: var(--gold); }
+
+/* 7. FOOTER ----------------------------------------------------------------- */
+.site-footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.85);
+  padding-block: 3.5rem;
+}
+.footer-wordmark { color: var(--white); font-size: 1.5rem; }
+.footer-tagline {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.footer-contact { margin-top: 1.2rem; font-size: 0.95rem; }
+.footer-contact a { color: rgba(255,255,255,0.85); }
+.footer-contact a:hover { color: var(--gold); }
+.footer-rights {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* 8. RESPONSIVE ------------------------------------------------------------- */
+
+/* TABLET and up: two-column pillars & craft, four-column steps. */
+@media (min-width: 720px) {
+  .pillars-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid   { grid-template-columns: repeat(4, 1fr); }
+  .craft-grid   { grid-template-columns: 1.05fr 0.95fr; }
+}
+
+/* DESKTOP: give the craft text a little more presence. */
+@media (min-width: 960px) {
+  .craft-grid { gap: 4rem; }
+}
+
+/* MOBILE navigation: collapse links into a dropdown panel behind the ☰ button.
+   Below 900px the inline nav is hidden and toggled open by JavaScript. */
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem var(--gutter) 1.25rem;
+    /* Hidden by default; the ".open" class (added in JS) reveals it. */
+    display: none;
+  }
+  .main-nav.open { display: flex; }
+  .main-nav > a {
+    width: 100%;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-cta { margin-top: 0.9rem; text-align: center; }
+
+  /* Keep the language switch visible next to the wordmark on mobile. */
+  .header-inner { flex-wrap: wrap; }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

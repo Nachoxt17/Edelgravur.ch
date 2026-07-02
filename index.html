@@ -1,0 +1,272 @@
+<!--
+  ============================================================================
+  EDELGRAVUR.CH — Mobile Laser Engraving landing page
+  ============================================================================
+  HOW THIS PAGE WORKS (for manual maintenance):
+
+  • This is a single-page site. All wording lives in  js/i18n.js  as a
+    "translations" table with four languages (de / fr / it / en).
+  • Any element you see below with a  data-i18n="some.key"  attribute has its
+    text filled in automatically from that table. To change wording, edit the
+    matching key in js/i18n.js — do NOT type text directly here.
+  • The language buttons (top right) switch every text at once and remember
+    the choice in the browser.
+  • Styling is in  css/styles.css  (colours/fonts are defined at the very top
+    as easy-to-change variables).
+  • The three photos are referenced by fixed filenames from the  assets/
+    folder — see assets/README.md for the exact names to use.
+  ============================================================================
+-->
+<!-- lang is set to English here as a default; i18n.js updates it on load. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title & description are also translated (see i18n.js -> meta.title/desc). -->
+  <title>Edelgravur — Mobile Laser Engraving for Hotels & Fine Kitchens</title>
+  <meta name="description" content="Mobile laser engraving for Switzerland's finest hotels and restaurants. We come to you to mark cutlery, cookware and kitchen tools." />
+
+  <!-- Optional: Google Fonts for the refined look. If you prefer zero external
+       dependencies, delete these three lines — the CSS falls back to elegant
+       system fonts automatically. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Simple emoji favicon so the browser tab isn't blank. Swap for a real one later. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔪</text></svg>" />
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       HEADER  ·  wordmark + navigation + language switcher
+       ========================================================================= -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <!-- Text wordmark (no logo image needed). Edit the styling in styles.css
+           under ".wordmark" if you want a different look. -->
+      <a href="#top" class="wordmark" aria-label="Edelgravur — home">
+        Edel<span class="wordmark-accent">gravur</span>
+      </a>
+
+      <!-- Primary navigation. On mobile it collapses behind the ☰ button. -->
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <a href="#service"  data-i18n="nav.service">Service</a>
+        <a href="#pillars"  data-i18n="nav.pillars">Two Ways to Engrave</a>
+        <a href="#how"      data-i18n="nav.how">How It Works</a>
+        <a href="#where"    data-i18n="nav.where">Where We Work</a>
+        <a href="#contact"  data-i18n="nav.contact">Contact</a>
+        <a href="#contact" class="btn btn-small nav-cta" data-i18n="nav.cta">Request a Visit</a>
+      </nav>
+
+      <!-- Language switcher. The active button gets an "is-active" class via JS. -->
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+
+      <!-- Mobile menu toggle (shown only on small screens via CSS). -->
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =======================================================================
+         HERO  ·  full-bleed background photo + headline + call-to-action
+         Background image: assets/hero-knives-mountain.jpg
+         (Falls back to a dark charcoal tone if the photo is missing.)
+         ======================================================================= -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="overline" data-i18n="hero.overline">Mobile Laser Engraving · Swiss Made</p>
+        <h1 class="hero-title" data-i18n="hero.title">Your mark, engraved to last.</h1>
+        <p class="hero-subline" data-i18n="hero.subline">
+          We bring precision laser engraving to your door — permanently marking the
+          cutlery, cookware and kitchen tools of Switzerland's finest hotels and restaurants.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold" data-i18n="hero.cta1">Request a Visit</a>
+          <a href="#service" class="btn btn-ghost" data-i18n="hero.cta2">Discover the Service</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SERVICE / INTRO  ·  "A workshop on wheels"
+         ======================================================================= -->
+    <section class="section section-intro" id="service">
+      <div class="container narrow center">
+        <p class="eyebrow" data-i18n="intro.eyebrow">The Service</p>
+        <h2 data-i18n="intro.title">A workshop on wheels.</h2>
+        <p class="lead" data-i18n="intro.body">
+          Our fully-equipped engraving studio travels in a van and sets up right at your
+          establishment…
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TWO PILLARS  ·  Distinction (logos) + Order (inventory)
+         ======================================================================= -->
+    <section class="section section-alt" id="pillars">
+      <div class="container">
+        <div class="center section-head">
+          <p class="eyebrow" data-i18n="pillars.eyebrow">Two Ways to Engrave</p>
+          <h2 data-i18n="pillars.title">One craft, two purposes.</h2>
+        </div>
+
+        <div class="pillars-grid">
+
+          <!-- Pillar 1 — luxury / logo angle -->
+          <article class="pillar-card">
+            <span class="pillar-num">01</span>
+            <p class="pillar-kicker" data-i18n="pillar1.kicker">Distinction</p>
+            <h3 data-i18n="pillar1.title">Your logo, on every piece.</h3>
+            <p data-i18n="pillar1.body">Turn everyday tools into a statement of identity…</p>
+            <p class="pillar-tags" data-i18n="pillar1.tags">Prestige · Elegance · Luxury</p>
+          </article>
+
+          <!-- Pillar 2 — practical / inventory angle -->
+          <article class="pillar-card">
+            <span class="pillar-num">02</span>
+            <p class="pillar-kicker" data-i18n="pillar2.kicker">Order</p>
+            <h3 data-i18n="pillar2.title">Numbered, named, accounted for.</h3>
+            <p data-i18n="pillar2.body">Bring calm to a busy kitchen…</p>
+            <p class="pillar-tags" data-i18n="pillar2.tags">Practicality · Order · Efficiency</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CRAFTSMANSHIP  ·  text + the two Damascus-knife photos
+         Images: assets/damascus-dark.jpg  and  assets/damascus-burl.jpg
+         ======================================================================= -->
+    <section class="section section-craft">
+      <div class="container craft-grid">
+        <div class="craft-text">
+          <p class="eyebrow" data-i18n="craft.eyebrow">Craftsmanship</p>
+          <h2 data-i18n="craft.title">Engraved to endure.</h2>
+          <p class="lead" data-i18n="craft.body">Our laser marks stainless steel, Damascus…</p>
+        </div>
+        <div class="craft-images">
+          <!-- The onerror handler hides a photo cleanly if the file isn't there yet. -->
+          <img src="assets/damascus-dark.jpg" alt="Engraved Damascus chef's knife with dark wood handle"
+               loading="lazy" onerror="this.classList.add('img-missing')" />
+          <img src="assets/damascus-burl.jpg" alt="Engraved Damascus chef's knife with burl wood handle"
+               loading="lazy" onerror="this.classList.add('img-missing')" />
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW IT WORKS  ·  4 steps
+         ======================================================================= -->
+    <section class="section section-alt" id="how">
+      <div class="container">
+        <div class="center section-head">
+          <p class="eyebrow" data-i18n="how.eyebrow">How It Works</p>
+          <h2 data-i18n="how.title">From first call to back in service.</h2>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h3 data-i18n="how.step1.t">Get in touch</h3>
+            <p data-i18n="how.step1.b">Tell us what you'd like marked and where you are.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h3 data-i18n="how.step2.t">We come to you</h3>
+            <p data-i18n="how.step2.b">Our engraving van arrives at your establishment at an agreed time.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h3 data-i18n="how.step3.t">We engrave on-site</h3>
+            <p data-i18n="how.step3.b">Logos or inventory data, applied precisely while you watch.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">4</span>
+            <h3 data-i18n="how.step4.t">Back in service</h3>
+            <p data-i18n="how.step4.b">Your tools are returned immediately, permanently marked and ready to use.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         WHERE WE WORK  ·  coverage / expansion
+         ======================================================================= -->
+    <section class="section section-where" id="where">
+      <div class="container narrow center">
+        <p class="eyebrow" data-i18n="where.eyebrow">Where We Work</p>
+        <h2 data-i18n="where.title">Based in the Bernese Oberland — heading across Switzerland.</h2>
+        <p class="lead" data-i18n="where.body">We start close to home in Grindelwald…</p>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT  ·  clickable email & phone (no form, fully static)
+         ======================================================================= -->
+    <section class="section section-contact" id="contact">
+      <div class="container narrow center">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+        <h2 data-i18n="contact.title">Let's mark your tools.</h2>
+        <p class="lead" data-i18n="contact.body">
+          Tell us about your establishment and what you'd like engraved — we'll arrange a visit.
+        </p>
+
+        <div class="contact-details">
+          <!-- Location -->
+          <div class="contact-item">
+            <span class="contact-label" data-i18n="contact.location_label">Location</span>
+            <span class="contact-value" data-i18n="contact.location">Interlaken 3800, Switzerland</span>
+          </div>
+          <!-- Email (clickable). The address itself never changes, so it is not translated. -->
+          <div class="contact-item">
+            <span class="contact-label" data-i18n="contact.email_label">Email</span>
+            <a class="contact-value" href="mailto:info@edelgravur.ch">info@edelgravur.ch</a>
+          </div>
+          <!-- Phone (clickable). tel: uses the international format without spaces. -->
+          <div class="contact-item">
+            <span class="contact-label" data-i18n="contact.phone_label">Phone</span>
+            <a class="contact-value" href="tel:+41772021323">+41 77 202 13 23</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container center">
+      <a href="#top" class="wordmark footer-wordmark">Edel<span class="wordmark-accent">gravur</span></a>
+      <p class="footer-tagline" data-i18n="footer.tagline">Mobile Laser Engraving · Switzerland</p>
+      <p class="footer-contact">
+        Interlaken 3800 ·
+        <a href="mailto:info@edelgravur.ch">info@edelgravur.ch</a> ·
+        <a href="tel:+41772021323">+41 77 202 13 23</a>
+      </p>
+      <p class="footer-rights" data-i18n="footer.rights">© 2026 Edelgravur · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Translations + language switching + mobile menu logic. -->
+  <script src="js/i18n.js"></script>
+</body>
+</html>
