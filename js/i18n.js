@@ -69,13 +69,13 @@ const translations = {
 
     "where.eyebrow": "Where We Work",
     "where.title":   "Based in the Bernese Oberland — heading across Switzerland.",
-    "where.body":    "We start close to home in Interlaken and the surrounding valleys, and travel throughout Switzerland by arrangement. Expanding soon into France. If you run a hotel or restaurant and want your tools marked, ask us about coming to you.",
+    "where.body":    "We start close to home in Grindelwald and the surrounding valleys, and travel throughout Switzerland by arrangement. Expanding soon into France. If you run a hotel or restaurant and want your tools marked, ask us about coming to you.",
 
     "contact.eyebrow":        "Contact",
     "contact.title":          "Let's mark your tools.",
     "contact.body":           "Tell us about your establishment and what you'd like engraved — we'll arrange a visit.",
     "contact.location_label": "Location",
-    "contact.location":       "Interlaken 3800, Switzerland",
+    "contact.location":       "Grindelwald 3818, Switzerland",
     "contact.email_label":    "Email",
     "contact.phone_label":    "Phone",
 
